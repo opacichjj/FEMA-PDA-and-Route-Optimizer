@@ -1,0 +1,45 @@
+<!-- this file is for "template inheritance"
+  it will create repeatable html to be recycled by multiple pages (nav bar)-->
+{% extends 'bootstrap/base.html' %}
+
+<!-- creating conditional statement to accept title, else return generic title -->
+<!-- conditional statement from Jinja2 via flask-->
+{% block title %}
+    {# conditional that displays title and/or SV2.0 - jinja comment #}
+    {% if title %}{{ title }} - SiteVisit 2.0{% else %}SiteVisit 2.0{% endif %}
+    {# conditional that displays title and - jinja comment #}
+{% endblock %}
+        <!-- creating conditional statement to accept title, else return generic title -->
+        <!-- conditional statement from Jinja2 via flask-->
+{% block navbar %}
+    <nav class="navbar navbar-default"><font size=4>
+          SiteVisit 2.0:
+          <!-- using url_for to generate urls to view functions -->
+          <a href="{{ url_for('index') }}"> Home </a>
+          {% if current_user.is_anonymous %} <!-- conditional to check user status -->
+          <a href="{{ url_for('login') }}"> Login </a>
+          {% else %} <!-- if user is logged in, displays the below content-->
+          <a href="{{ url_for('user', username=current_user.username) }}"> Assessments </a>
+          <a href="{{ url_for('optimizer', username=current_user.username) }}"> Route Optimizer </a>
+          <a href="{{ url_for('logout') }}"> Logout </a>
+          {% endif %}
+        </nav>
+        <link rel="stylesheet" type ='text/css' href="style.css">
+        <body align = 'center'><font face="palatino">
+{% endblock %}
+
+  <!-- inserting our flash message from routes.py -->
+{% block content %}
+    <div class="container">
+       {% with messages = get_flashed_messages() %}
+       {% if messages %} <!-- if we have any messages -->
+           {% for message in messages %}
+           <div class="alert alert-info" role="alert">{{ message }}</div>
+           {% endfor %}
+       {% endif %}
+       {% endwith %}
+
+        <!-- using the 'block' control statement to define the place where the other templates will insert their content -->
+        {% block app_content %}{% endblock %}
+    </div>
+{% endblock %}

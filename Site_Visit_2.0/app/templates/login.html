@@ -1,0 +1,39 @@
+{% extends "base.html" %} <!-- places this content to our nav bar -->
+
+{% block content %}  <!-- extended to block content in base.html-->
+    <h1>Sign In</h1>
+
+    <!-- form here is a container for the form, action specifies the URL to be used when submitting the form, empty strings specify current address
+    method here specifies HTTP request method
+    novalidate leaves validation to the Flask app-->
+    <form action="" method="post" novalidate>
+      <link rel="stylesheet" type ='text/css' href="style.css">
+        {{ form.hidden_tag() }} <!-- generates hidden field to protect against CSRF, in conjunction with 'SECRET_KEY' from <config class="py"></config>-->
+        <body align='center'
+            <p>
+                <!-- content comes from forms.py, Flask generates HTML -->
+                {{ form.username.label }}<br>
+                {{ form.username(size=32) }}
+                <!-- checking for errors and printing error message -->
+                {% for error in form.username.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p>
+                {{ form.password.label }}<br>
+                {{ form.password(size=32) }}
+                <!-- checking for errors and printing error message -->
+                {% for error in form.password.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <!-- remember me, check box -->
+            <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+
+            <!-- registratino link -->
+            <p>New User? <a href="{{ url_for('register') }}">Click to Register!</a></p>
+
+            <p>{{ form.submit() }}</p>
+        </body>
+    </form>
+{% endblock %}

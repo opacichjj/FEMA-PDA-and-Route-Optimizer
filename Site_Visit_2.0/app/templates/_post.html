@@ -1,0 +1,35 @@
+<!-- this is a sub-template for assessments that will be called by other html files -->
+
+<table class="table table-hover">
+    <tr>
+        <td width="70px" align='center'>
+          <a href="{{ assessment.author.username }} logged on {{ assessment.timestamp}}:}">
+          </a>
+        </td>
+        <td>
+          <b> <!-- this is how to pull up the picture, but we need the file path corrected -->
+          <img src = "http://localhost:5000//images/{{ assessment.street_pic}}"  height ='800' width = '800'> </img> </b> <br>
+          <body align = 'center'><font size=4 face='palatino'>
+            <b>Address: {{ assessment.formatted_address }} </b> <br>
+
+
+            <!-- template for code below {{ "${:,.2f}".format(543921.9354) }} -->
+
+            <b>Zillow Value Estimate : {{ assessment.zillow_estimate }} </b><br>
+            <b>Applicant Damage Estimate: {{ assessment.applicant_est }}</b><br>
+            <b>Agent Damage Estimate: {{ assessment.agent_est }}</b><br>
+            <b>Latitude: {{ assessment.lat }}</b><br>
+            <b>Longitude: {{ assessment.lng }}</b><br>
+            <b>Main Building: {{ assessment.damage }}</b><br>
+            <b>Exterior Damage: {{ assessment.exterior }}</b><br>
+            <b>Interior Damage: {{ assessment.interior }}</b><br>
+            <b>Other Building: {{ assessment.other_damage }}</b><br>
+            <b>Other Exterior Damage: {{ assessment.other_exterior }}</b><br>
+            <b>Other Interior Damage: {{ assessment.other_interior }}</b><br>
+            <b>Disaster Type: {{ assessment.disaster_type }}</b><br>
+            <b>Name of Disaster: {{ assessment.disaster_name }}</b><br>
+            <b>Notes: {{ assessment.comments }}</b><br>
+          </body>
+        </td>
+    </tr>
+</table>

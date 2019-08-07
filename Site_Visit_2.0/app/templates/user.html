@@ -1,0 +1,26 @@
+<!-- This is the 'profile' HTML page for our user content
+we will need to place pictures and home content here for each house-->
+
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+  <tr valign="top"> <!-- may need to cut this out -->
+      <td>
+          <!-- displaying the user name, title, and last login -->
+          <h1>User: {{ user.username }}</h1>
+          {% if user.title %}<p>{{ user.title }}</p>{% endif %}
+          {% if user.last_seen %}<p>Last session: {{ user.last_seen }}</p>{% endif %}
+      </td>
+  </tr>
+</table>
+    <hr>
+    {% for assessment in assessments %}
+        <!-- using Jinja2 'include' statement to import _post.html -->
+        {% include '_post.html' %}
+    {% endfor %}
+
+    {% if user == current_user %} <!-- if this is your profile, allow the ability to edit -->
+    <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
+    {% endif %}
+{% endblock %}}

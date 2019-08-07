@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+  <h1><font size=18>SIVIRO - Helping you help others. Faster!</h1>
+
+  <form action="" method="post" id="siviro" name="address" enctype='multipart/form-data' novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        <br>
+        <br>
+        <br>
+
+      <body align = 'center'><font face='palatino' size=14>
+        This page is under construction.
+        <br>
+        <br>
+        Enhancements coming soon!
+<!--
+        Javascript/AJAX is likely necessary to create dynamic fields to accept multiple (undefined) number of addresses.  The python code (siviro.py) will work, assuming everything is looped correctly with html, routes.py, forms.py, and models.py
+
+        {{ form.num_sites.label }}<br>
+        {{ form.num_sites(size=1) }}<br>
+        {% for error in form.num_sites.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        {{ form.origin.label }}<br>
+        {{ form.origin(size=40) }}<br>
+        {% for error in form.origin.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        {{ form.addresses.label }}<br>
+        {{ form.addresses(cols=64, rows=4) }}<br>
+        {% for error in form.addresses.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        {{ form.return_location.label }}<br>
+        {{ form.return_location(cols=64, rows=4) }}<br>
+        {% for error in form.return_location.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+      </p>
+      <p>{{ form.submit() }}</p>
+  </form>
+
+  <script type="text/javascript" charset="utf-8">
+    $("#addresses").click(function(){
+        $.ajax({
+            url: '/optimizer',
+            type: 'POST',
+            data: $('#siviro').serialize(),
+            success: function(selectOptions){
+                $("#addresses").empty();
+                for (var i = 0; i < selectOptions.length; i++){
+                    $("#addresses").append(
+                        $("<option></option>")
+                        .attr("value", selectOptions[i][0])
+                        .text(selectOptions[i][1])
+                    );
+                }
+            }
+        });
+    });
+</script>
+-->
+{% endblock %}
+
+
+
+
+
+<!--  This is the original code that i need to fit into the if statement
+        {{ form.origin.label }}<br>
+        {{ form.origin(cols=64, rows=4) }}<br>
+        {% for error in form.origin.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        {{ form.addresses.label }}<br>
+        {{ form.addresses(cols=64, rows=4) }}<br>
+        {% for error in form.addresses.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        {{ form.return_location.label }}<br>
+        {{ form.return_location(cols=64, rows=4) }}<br>
+        {% for error in form.return_location.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+        {% endfor %}
+
+        -->

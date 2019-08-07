@@ -1,0 +1,105 @@
+<!-- this establishes the inheritance link between  base.html (or nav bar) and this templateit inserts at the block content placeholder -->
+{% extends "base.html" %}
+      <!-- This provides the user name, accepted from the 'index' function of 'routes.py' -->
+
+{% block content %} <!-- Jinja2 knows how to combine off this line-->
+    <h1 align='center'>Welcome back, {{ current_user.username }}!</h1>
+
+    <!-- using the 'form' value from index() function of routes.py -->
+    <form action="" method="post" enctype='multipart/form-data' novalidate>
+        {{ form.hidden_tag() }}
+        <p align = 'center'>
+
+            {{ form.raw_address.label }}<br>
+            {{ form.raw_address(cols=64, rows=4) }}<br>
+            {% for error in form.raw_address.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.applicant_est.label }}<br>
+            {{ form.applicant_est(cols=32, rows=4) }}<br>
+            {% for error in form.applicant_est.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.damage.label }}<br>
+            {{ form.damage(cols=32, rows=4) }}<br>
+            {% for error in form.damage.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.exterior.label }}<br>
+            {{ form.exterior(cols=32, rows=4) }}<br>
+            {% for error in form.exterior.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.interior.label }}<br>
+            {{ form.interior(cols=32, rows=4) }}<br>
+            {% for error in form.interior.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.other_damage.label }}<br>
+            {{ form.other_damage(cols=32, rows=4) }}<br>
+            {% for error in form.other_damage.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.other_exterior.label }}<br>
+            {{ form.other_exterior(cols=32, rows=4) }}<br>
+            {% for error in form.other_exterior.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.other_interior.label }}<br>
+            {{ form.other_interior(cols=32, rows=4) }}<br>
+            {% for error in form.other_interior.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.agent_est.label }}<br>
+            {{ form.agent_est(cols=32, rows=4) }}<br>
+            {% for error in form.agent_est.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.disaster_type.label }}<br>
+            {{ form.disaster_type(cols=32, rows=4) }}<br>
+            {% for error in form.disaster_type.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.disaster_name.label }}<br>
+            {{ form.disaster_name(cols=32, rows=4) }}<br>
+            {% for error in form.disaster_name.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+            {{ form.comments.label }}<br>
+            {{ form.comments(cols=64, rows=10) }}<br>
+            {% for error in form.comments.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+
+        </p>
+        <p align='center'>{{ form.submit() }}</p>
+    </form>
+
+<br>
+    <!-- Do not need this right now
+    {% for assessment in assessments %}
+    <p>
+    {{ assessment.author.username }} logged on {{ assessment.timestamp}}: <br>
+    <b>{{ assessment.address }}, {{ assessment.city }}, {{ assessment.state }}</b> <br>
+    <b>Main Building: {{ assessment.damage }}</b><br>
+    <b>Other Building: {{ assessment.other_damage }}</b><br>
+    <b>Exterior Damage: {{ assessment.exterior }}</b><br>
+    <b>Interior Damage: {{ assessment.interior }}</b><br>
+    <b>Damage Percentage: {{ assessment.damage_pcnt }}</b><br>
+    <b>Disaster Type: {{ assessment.disaster_type }}</b><br>
+    <b>Name of Disaster: {{ assessment.disaster_name }}</b><br>
+    </p>
+    {% endfor %} -->
+
+{% endblock %}
