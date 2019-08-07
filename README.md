@@ -1,8 +1,8 @@
 # NLT/FEMA Project
 
-![](/demo/DAPRI.gif)
-![](/demo/PDA_gif.gif)
-![](/demo/html_maps.gif)
+![](/demo/DAPRI.gif =250x250)
+![](/demo/PDA_gif.gif =250x250)
+![](/demo/html_maps.gif =250x250)
 
 ## Problem Statement
 **Using Google Street View as a baseline for damage assessment**
