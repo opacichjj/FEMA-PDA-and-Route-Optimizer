@@ -1,4 +1,8 @@
-# Project 5: Client Project
+# NLT/FEMA Project
+
+![](/demo/DAPRI.gif)
+![](/demo/PDA_gif.gif)
+![](/demo/html_maps.gif)
 
 ## Problem Statement
 **Using Google Street View as a baseline for damage assessment**
@@ -132,7 +136,7 @@ This metric provides a ratio of the level of damage (in monetary value) provided
 - Sort clusters based on their average PI
 - Sort properties in each cluster based on their individual PIs
 
-### Interactive HTML-Based Maps 
+### Interactive HTML-Based Maps
 The goal was to build well-rounded web-based/phone applications, to do so, we had to turn the maps created in the Jupyter notebook into HTML form. Using Google Maps Cloud Platform APIs, we implemented JavaScript, MySQL database, PHP, and XML. Those tools were used to do the following: cluster properties effected based on proximity, create heatmaps based on the amount of damage (weighted), and markers that display information about each property. It was important for us to use the Google JavaScript API, SQL, PHP, and XML because they can act as a server/database, which is important for real-world use.
 
 ## Site Visit Route Optimizer (SIVIRO)
@@ -158,7 +162,7 @@ The outcome of the tool is the sequence of property visits to achieve the minimu
 ## Web-PDA
 The backbone of our web form was constructed with Flask and its bevy of libraries.  Using a sprawling structure of decorators, classes and subclasses, we were able to integrate Google’s Street View and Zillow’s APIs with our algorithms to extract property images and value estimates, to live alongside the assessment information for each site.  
 
-Utilizing SQLAlchemy, all of our inputs are able to be assigned to a database to be accessed at a later date, including the Google Street View image file link, that can be accessed from our server.  The application comes alive in the web form via HTML and is largely constructed through Flask via Jinja2, which allows us to run our database queries. 
+Utilizing SQLAlchemy, all of our inputs are able to be assigned to a database to be accessed at a later date, including the Google Street View image file link, that can be accessed from our server.  The application comes alive in the web form via HTML and is largely constructed through Flask via Jinja2, which allows us to run our database queries.
 
 ## APIs and Object-Oriented Programming
 
@@ -177,7 +181,7 @@ While our team has accomplished a lot in a two week time period, there are is st
 - Allow for greater pre-disaster image capturing via Google Street View angle configuration or satelite images
 - Build a phone application that will store assessment information locally, in case internet access is not possible
 
-In addition to the web form’s capabilities, DAPRI and its route prioritization should continue to be evaluated due to potential ethical issues for addressing assessment priority.  We also did not have the ability to discuss the primary concerns that FEMA considers when trying to prioritize their assessment efforts.  Gathering the necessary feedback would allow us to implement a better algorithm here. 
+In addition to the web form’s capabilities, DAPRI and its route prioritization should continue to be evaluated due to potential ethical issues for addressing assessment priority.  We also did not have the ability to discuss the primary concerns that FEMA considers when trying to prioritize their assessment efforts.  Gathering the necessary feedback would allow us to implement a better algorithm here.
 
 Finally, user experience of our form would need to be addressed.  Our Data Science team has limited experience in HTML, CSS, and Javascript, so additional research and self-training here would ensure a more attractive and easier to use web form for the assessor and the general public.
 
@@ -214,4 +218,3 @@ Object Oriented Programming:
 Past Projects:
 * [Github DSI-DC-6](https://github.com/Mauriekathan/Image_Geo_Team_Street_View)
 * [Github DSI-DC-7](https://github.com/wkarney/street_viewing_for_FEMA)
-
